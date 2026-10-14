@@ -525,6 +525,57 @@ h2 span,
   color: var(--muted);
 }
 
+  /* Clase para el texto del navbar*/
+        .texto-brillo {
+            color: #ffffff;
+            /* font-size: 3rem; */
+            font-weight: bold;
+            letter-spacing: 2px;
+            /* Aplicamos la animación: nombre, duración, suavizado, e infinito */
+            animation: parpadeoLento 4s ease-in-out infinite;
+        }
+
+        /* Definición de la animación */
+        @keyframes parpadeoLento {
+            0%, 100% {
+                opacity: 0.4;
+                text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+            }
+            50% {
+                opacity: 1;
+                /* El text-shadow crea el efecto de "subir el brillo" */
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                             0 0 20px rgba(255, 255, 255, 0.5),
+                             0 0 30px rgba(255, 255, 255, 0.3);
+            }
+        }
+
+  /* Clase para el texto del bóton contactanos del navbar */
+        .texto-brillo-btn {
+            color: var(--gold);
+            /* font-size: 3rem; */
+            font-weight: bold;
+            letter-spacing: 2px;
+            /* Aplicamos la animación: nombre, duración, suavizado, e infinito */
+            animation: parpadeoLento2 4s ease-in-out infinite;
+        }
+
+        /* Definición de la animación */
+        @keyframes parpadeoLento2 {
+            0%, 100% {
+                opacity: 0.4;
+                text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+            }
+            50% {
+                opacity: 1;
+                /* El text-shadow crea el efecto de "subir el brillo" */
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+                             0 0 20px rgba(255, 255, 255, 0.5),
+                             0 0 30px rgba(255, 255, 255, 0.3);
+            }
+        }
+      
+
 @media (max-width: 991.98px) {
   .section-space {
     padding: 70px 0;

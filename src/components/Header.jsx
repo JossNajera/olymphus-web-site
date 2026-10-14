@@ -30,14 +30,14 @@ const [menuOpen,setMenuOpen]=React.useState(false);
                     <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-2">
                         {
                             [
-                                ['Inicio','#inicio'],['Servicios','#servicios'],['Sectores','#sectores'],['Contacto','#contacto']
+                                ['Inicio','#inicio'],['Servicios','#servicios'],['Sectores','#sectores'],['Contacto','#contacto'], ['Nosotros','#nosotros']
                             
                             ].map(([name,url])=><li className="nav-item" key={url}>
                         
-                            <a className="nav-link" href={url} onClick={closeMenu}>{name}</a></li>)
+                            <a className="texto-brillo nav-link" href={url} onClick={closeMenu}>{name}</a></li>)
                         }
                         
-                        <li className="nav-item ms-lg-2">
+                        <li className="texto-brillo-btn nav-item ms-lg-2">
                             <a href="#contacto" onClick={closeMenu} className="btn btn-gold btn-sm px-3">
                                 Solicita tu cotización 
                                 <i className="bi bi-arrow-right ms-1"/>

@@ -1,20 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Swal from 'sweetalert2'; 
+import axios from 'axios';
 
+// const services = [
+//   {icon:'bi-check2-square',title:'Pruebas funcionales',desc:'Validamos los procesos críticos y la experiencia de usuario.'},
+//   {icon:'bi-speedometer2',title:'Pruebas de rendimiento',desc:'Identificamos cuellos de botella y evaluamos la estabilidad.'},
+//   {icon:'bi-shield-lock',title:'Pruebas de seguridad',desc:'Detectamos riesgos y fortalecemos la protección de aplicaciones.'},
+//   {icon:'bi-cloud-check',title:'Pruebas en la nube',desc:'Ejecutamos pruebas escalables en entornos cloud.'},
+//   {icon:'bi-phone',title:'Pruebas multiplataforma',desc:'Verificamos el funcionamiento en distintos dispositivos.'},
+//   {icon:'bi-arrow-repeat',title:'Pruebas regresivas',desc:'Comprobamos que los cambios no afecten funcionalidades existentes.'},
+//   {icon:'bi-graph-up-arrow',title:'Reportes y análisis',desc:'Transformamos los resultados en decisiones accionables.'},
+// ];
 const services = [
-  {icon:'bi-check2-square',title:'Pruebas funcionales',desc:'Validamos los procesos críticos y la experiencia de usuario.'},
-  {icon:'bi-speedometer2',title:'Pruebas de rendimiento',desc:'Identificamos cuellos de botella y evaluamos la estabilidad.'},
+  {icon:'bi-arrow-repeat',title:'Olymphus QA Automation',desc:'Pruebas funcionales, regresivas, APIs, integración continua y reportes de calidad.'},
+  {icon:'bi-phone',title:'Olymphus Software Factory',desc:'Aplicaciones empresariales, dashboards, APIs, microservicios, integración de CRM y automatización de procesos.'},
+  {icon:'bi-cloud-check',title:'Olymphus Cloud Solutions',desc:'Diagnóstico de infraestructura, migraciones a Azure, modernización y optimización de recursos.'},
+  {icon:'bi-graph-up-arrow',title:'Dynamics 365',desc:'Automatizamos los procesos comerciales y la gestión de clientes con Microsoft Dynamics 365 sobre Power Platform.'},
+  {icon:'bi-check2-square',title:'Olymphus Ongoing Support',desc:'No te dejamos solo en el camino, te brindamos soporte continuo sobre las aplicaciones y procesos de tu negocio.'},
   {icon:'bi-shield-lock',title:'Pruebas de seguridad',desc:'Detectamos riesgos y fortalecemos la protección de aplicaciones.'},
-  {icon:'bi-cloud-check',title:'Pruebas en la nube',desc:'Ejecutamos pruebas escalables en entornos cloud.'},
-  {icon:'bi-phone',title:'Pruebas multiplataforma',desc:'Verificamos el funcionamiento en distintos dispositivos.'},
-  {icon:'bi-arrow-repeat',title:'Pruebas regresivas',desc:'Comprobamos que los cambios no afecten funcionalidades existentes.'},
-  {icon:'bi-graph-up-arrow',title:'Reportes y análisis',desc:'Transformamos los resultados en decisiones accionables.'},
+//   {icon:'bi-speedometer2',title:'Pruebas multiplataforma',desc:'Verificamos el funcionamiento en distintos dispositivos.'},
 ];
 const sectors=[
-  {icon:'bi-bank',title:'Financiero',desc:'Transacciones seguras, plataformas estables y clientes confiados.'},
+  {icon:'bi-bank',title:'Financiero',desc:'Transacciones seguras, plataformas estables y confianza al cliente.'},
   {icon:'bi-cart3',title:'Comercial',desc:'E-commerce sin fallos, mejor experiencia y más ventas.'},
-  {icon:'bi-shield-check',title:'Seguridad',desc:'Aplicaciones resilientes, protección de datos y operación continua.'}
+  {icon:'bi-hospital-fill',title:'Salud',desc:'Optimización de flujos administrativos, automatización de datos clínicos y eficacia para el correcto funcionamiento de las plataformas médicas.'}
 ];
 
 const STEPS = [
@@ -41,8 +52,78 @@ const MainPageContent = () => {
       const completed = current === STEPS.length;
       const progress = Math.min(100, Math.round((elapsed / (STEPS.length * STEP_MS)) * 100));
 
- const [sent,setSent]=React.useState(false);
- function submit(e){e.preventDefault();const d=new FormData(e.currentTarget);const subject=encodeURIComponent('Solicitud de cotización TESTAUTOMATE');const body=encodeURIComponent(`Nombre: ${d.get('nombre')}\nEmpresa: ${d.get('empresa')}\nCorreo: ${d.get('correo')}\nServicio: ${d.get('servicio')}\nMensaje: ${d.get('mensaje')}`);window.location.href=`mailto:olymphusti.soluciones@gmail.com?subject=${subject}&body=${body}`;setSent(true)}
+  
+  
+  const [nombreCompleto, setNombreCompleto] = useState('');
+  const [correo, setCorreo] = useState('');
+  const [empresa, setEmpresa] = useState('');
+  const [cargo, setCargo] = useState('');
+  const [telefono, setTelefono] = useState('');
+  const [servicio, setServicio] = useState('');
+  const [mensaje, setMensaje] = useState('');
+
+    // Función para capturar el texto del select
+    const manejarCambioSelect = (e) => {
+    const indiceSeleccionado = e.target.selectedIndex;
+    const texto = e.target.options[indiceSeleccionado].text; // Obtiene el texto visible
+    console.log(texto)
+    setServicio(texto);
+  };
+
+  // Función para manejar la solicitud POST
+  const enviarDatos = async (e) => {
+    e.preventDefault(); // Evita que la página se recargue si está dentro de un <form>
+
+
+  const data = {
+        nombreCompleto: nombreCompleto,
+        correo: correo,
+        empresa: empresa,
+        cargo: cargo,
+        telefono: telefono,
+        servicioInteres: servicio,
+        comentario: mensaje
+      }
+
+
+try {
+
+   // MENSAJE AL USUARIO
+        Swal.fire({
+        title: '¡Datos enviados!',
+        text: 'Pronto nos pondremos en contacto contigo.',
+        icon: 'success',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'Entendido'
+      });
+    // Realizamos la petición POST con Axios
+      const respuesta = await axios.post(`${import.meta.env.OLYMPHUS_URL}/api/contactanos`, data);
+
+      console.log('Respuesta del servidor:', respuesta.data);
+        
+
+    } catch (error) {
+        console.error('Hubo un error al enviar la solicitud:', error);
+       
+        Swal.fire({
+        title: '¡Error al enviar los datos!',
+        text: 'Ya has utilizado este correo anteriormente. Intenta con otro.',
+        icon: 'info',
+        confirmButtonColor: '#3085d6',
+        confirmButtonText: 'cerrar'
+      });
+      }
+
+      // LIMPIAR FORMULARIO
+      setNombreCompleto('');
+      setCorreo('');
+      setEmpresa('');
+      setCargo('');
+      setTelefono('');
+      setServicio('');
+      setMensaje('');
+  }
+
 
   return (
     <>
@@ -150,8 +231,8 @@ const MainPageContent = () => {
                 <div className="container">
                     <div className="section-heading text-center">
                         <p className="eyebrow">SOLUCIONES ESPECIALIZADAS</p>
-                        <h2>NUESTROS <span>SERVICIOS</span></h2>
-                        <p>Pruebas diseñadas para mejorar la calidad, continuidad y rendimiento de tus sistemas.</p>
+                        <h2>Nuestros <span>Servicios</span></h2>
+                        <p>Soluciones desarrolladas para mejorar la calidad, continuidad y rendimiento de tus sistemas.</p>
                     </div>
                     <div className="row g-4 mt-3">
                         {services.map(s => (
@@ -174,8 +255,8 @@ const MainPageContent = () => {
                     <div className="row align-items-center g-5">
                         <div className="col-lg-6">
                             <p className="eyebrow">PROTEGE TU OPERACIÓN</p>
-                            <h2>CALIDAD QUE IMPULSA 
-                                <span>TU OPERACIÓN</span>
+                            <h2>Calidad que impulsa tu negocio y
+                                <span> tu Operación</span>
                             </h2>
                             <p>Detectamos defectos antes de que lleguen a tus usuarios. Integramos pruebas automatizadas en tus procesos de desarrollo para liberar software con mayor confianza.</p>
                             <a href="#contacto" className="btn btn-outline-cyan mt-3">Hablemos de tu proyecto <i className="bi bi-arrow-right ms-2"/></a>
@@ -213,8 +294,8 @@ const MainPageContent = () => {
             <section id="sectores" className="section-space">
                 <div className="container">
                     <div className="section-heading text-center">
-                        <p className="eyebrow">EXPERIENCIA POR INDUSTRIA</p>
-                        <h2>SERVICIOS ESPECIALIZADOS <span>PARA</span></h2>
+                        <p className="eyebrow">COVERTURA POR SECTOR</p>
+                        <h2> Nuestros Servicios se Especializan <span>para</span></h2>
                     </div>
                     <div className="row g-4 mt-3">
                         {
@@ -230,33 +311,66 @@ const MainPageContent = () => {
                     </div>
                 </div>
             </section>
+
+            <section id="nosotros" className="section-space spotlight">
+                <div className="container">
+                    <div className="eyebrow row g-5 align-items-center">
+                         {/* Título Principal */}
+                        <h2 className=" display-4 fw-bold mb-4" style={{ maxWidth: '800px', lineHeight: '1.15' }}>
+                        Más de 5 años <span className="text-white">transformando empresas </span>
+                        con nuestras soluciones
+                        </h2>
+                        
+                        {/* Descripción */}
+                        <p className="lead text-white mb-4" style={{ color: '#a0aec0', maxWidth: '900px', fontSize: '1.1rem', lineHeight: '1.6' }}>
+                        Innovamos la transformación digital de organizaciones públicas y privadas mediante las mejores practicas de desarrollo de software, servicios en la nube, ciberseguridad, automatización y servicios administrados.
+                        </p>
+
+                        {/* Etiquetas / Badges con Check Verdes */}
+                        <div className="d-flex flex-wrap gap-2 mb-4">
+                        <span className="px-3 py-2 rounded-2 d-inline-flex align-items-center gap-2 small" style={{ backgroundColor: 'rgba(6, 18, 46, 0.4)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                            <i className="bi bi-check2 text-success fw-bold"></i> Experiencia empresarial
+                        </span>
+                        <span className="px-3 py-2 rounded-2 d-inline-flex align-items-center gap-2 small" style={{ backgroundColor: 'rgba(6, 18, 46, 0.4)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                            <i className="bi bi-check2 text-success fw-bold"></i> Innovación aplicada
+                        </span>
+                        <span className="px-3 py-2 rounded-2 d-inline-flex align-items-center gap-2 small" style={{ backgroundColor: 'rgba(6, 18, 46, 0.4)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                            <i className="bi bi-check2 text-success fw-bold"></i> Soluciones escalables
+                        </span>
+                        <span className="px-3 py-2 rounded-2 d-inline-flex align-items-center gap-2 small" style={{ backgroundColor: 'rgba(6, 18, 46, 0.4)', border: '1px solid rgba(255,255,255,0.1)' }}>
+                            <i className="bi bi-check2 text-success fw-bold"></i> Acompañamiento continuo
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
             <section id="contacto" className="section-space contact-section">
                 <div className="container">
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-5">
                             <p className="eyebrow">COMENCEMOS</p>
-                            <h2>PROTEGE TU SOFTWARE. 
-                                <span>IMPULSA TU NEGOCIO.</span>
+                            <h2>Protege tu Software. 
+                                <span> Evoluciona tu Negocio.</span>
                                 </h2>
                                     <p>Cuéntanos sobre tu aplicación y los retos que deseas resolver. Te ayudamos a identificar un enfoque de pruebas adecuado.</p>
-                                    <a className="contact-link" href="mailto:olymphusti.soluciones@gmail.com">
-                                        <i className="bi bi-envelope"/> olymphusti.soluciones@gmail.com
-                                    </a>
+                                    
                         </div>
                         
                         <div className="col-lg-7">
-                            <form className="contact-form" onSubmit={submit}>
+                            <form className="contact-form" onSubmit={enviarDatos}>
                                 <h3>Solicita una cotización</h3>
                                 <div className="row g-3">
                                     <div className="col-md-6">
-                                        <label htmlFor="nombre">Nombre *</label>
+                                        <label htmlFor="nombre">Nombre Completo *</label>
                                         <input 
                                             id="nombre" 
                                             name="nombre" 
                                             className="form-control" 
                                             required maxLength="100" 
                                             placeholder="Tu nombre"
+                                            value={nombreCompleto}
+                                            onChange={(e) => setNombreCompleto(e.target.value)}  
                                         />
                                         
                                     </div>
@@ -269,9 +383,24 @@ const MainPageContent = () => {
                                             className="form-control" 
                                             maxLength="120" 
                                             placeholder="Nombre de tu empresa"
+                                            value={empresa}
+                                            onChange={(e) => setEmpresa(e.target.value)}  
                                         />
                                     </div>
                                     
+                                    <div className="col-12">
+                                        <label htmlFor="telefono">Número de Teléfono </label>
+                                        <input 
+                                            id="telefono" 
+                                            name="telefono" 
+                                            type="number" 
+                                            className="form-control" 
+                                            placeholder="Ejemplo: 5551234567"
+                                            value={telefono}
+                                            onChange={(e) => setTelefono(e.target.value)}  
+                                        />
+                                    </div>
+
                                     <div className="col-12">
                                         <label htmlFor="correo">Correo electrónico *</label>
                                         <input 
@@ -281,22 +410,42 @@ const MainPageContent = () => {
                                             className="form-control" 
                                             required 
                                             placeholder="correo@empresa.com"
+                                            value={correo}
+                                            onChange={(e) => setCorreo(e.target.value)}  
                                         />
                                     </div>
+
+                                    <div className="col-12">
+                                        <label htmlFor="correo">Cargo *</label>
+                                        <input 
+                                            id="cargo" 
+                                            name="cargo" 
+                                            type="text" 
+                                            className="form-control" 
+                                            placeholder="Ej. Gerente comercial" 
+                                            required 
+                                            value={cargo}
+                                            onChange={(e) => setCargo(e.target.value)}  
+                                        />
+                                    </div>
+
                                     <div className="col-12">
                                         <label htmlFor="servicio">Servicio de interés</label>
                                         <select 
                                             id="servicio" 
                                             name="servicio" 
                                             className="form-select"
+                                            onChange={manejarCambioSelect}
+                                            defaultValue={""}
+                                            required
                                         >
-                                            <option>Pruebas automatizadas</option>
-                                            <option>Pruebas funcionales</option>
-                                            <option>Pruebas de rendimiento</option>
-                                            <option>Pruebas de seguridad</option>
-                                            <option>Pruebas en la nube</option>
-                                            <option>Pruebas regresivas</option>
-                                            <option>Otro servicio</option>
+                                            <option value="" disabled>Selecciona una opción</option>
+                                            <option>Automatización de Pruebas (QA)</option>
+                                            <option>Automatización de Procesos</option>
+                                            <option>Desarrollo Web</option>
+                                            <option>Microservicios</option>
+                                            <option>Soluciones en la nube</option>
+                                            <option>Microsoft Dynamics 365</option>
                                         </select>
                                     </div>
                                     <div className="col-12">
@@ -308,22 +457,20 @@ const MainPageContent = () => {
                                             rows="4" 
                                             required 
                                             maxLength="3000" 
-                                            placeholder="Describe brevemente tus necesidades"
+                                            placeholder="Describe brevemente tu proyecto o solución de interés."
+                                            value={mensaje}
+                                            onChange={(e) => setMensaje(e.target.value)}  
                                         />
                                     </div>
                                     <div className="col-12">
                                         <button className="btn btn-gold w-100" type="submit">
-                                            Preparar correo de cotización 
+                                            Cotizar ahora
                                             <i className="bi bi-send ms-2"/>
                                         </button>
                                         <small className="form-note">
-                                            Se abrirá tu aplicación de correo para enviar la solicitud. No se almacena información en esta página.
+                                            * Una vez envies tus datos, se te notificará por correo para acordar contigo.
                                         </small>
-                                        {sent && (
-                                            <p className="mt-2 text-info" role="status">
-                                                Se intentó abrir tu aplicación de correo. Revisa y envía el mensaje para completar la solicitud.
-                                            </p>
-                                        )}
+                          
                                     </div>
                                 </div>
                             </form>
