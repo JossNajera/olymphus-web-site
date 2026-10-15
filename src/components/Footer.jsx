@@ -25,7 +25,7 @@ const Footer = () => {
                 <p>Automatiza tus pruebas. Impulsa tu negocio. Soluciones y calidad de software para empresas en México.</p>
             </div>
 
-            <div className="col-6 col-lg-3">
+            <div className="col-4 col-md-3">
                 <h4>Soluciones</h4>
                 <h3 className="h5 fw-bold mb-0 tracking-wide text-uppercase" style={{ letterSpacing: '1px' }}>
                   <img 
@@ -97,7 +97,7 @@ const Footer = () => {
                   </span>
               </h3>
             </div>
-            <div className="col-2 col-lg-3">
+            <div className="col-4 col-md-3">
                 <h4>Contacto</h4>
                 {/* <a href="mailto:olymphusti.soluciones@gmail.com">
                     <i className="bi bi-envelope me-2"/>olymphusti.soluciones@gmail.com
@@ -112,7 +112,7 @@ const Footer = () => {
 
             
 
-            <div className="col-2 col-lg-2 ">
+            <div className="col-2 col-md-2 ">
                 <h4>Síguenos</h4>
                 <div className="d-flex justify-content-start align-items-center">
                         {/* Facebook */}
