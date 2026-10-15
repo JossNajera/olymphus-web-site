@@ -231,7 +231,7 @@ try {
                 <div className="container">
                     <div className="section-heading text-center">
                         <p className="eyebrow">SOLUCIONES ESPECIALIZADAS</p>
-                        <h2>Nuestros <span>Servicios</span></h2>
+                        <h2>Nuestras <span>Soluciones</span></h2>
                         <p>Soluciones desarrolladas para mejorar la calidad, continuidad y rendimiento de tus sistemas.</p>
                     </div>
                     <div className="row g-4 mt-3">
