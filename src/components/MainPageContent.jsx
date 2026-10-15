@@ -141,7 +141,7 @@ try {
                                     Solicita tu cotización 
                                     <i className="bi bi-arrow-up-right ms-2"/>
                                 </a>
-                                <a className="btn btn-outline-cyan btn-lg" href="#servicios">Explorar servicios</a>
+                                <a className="btn btn-outline-cyan btn-lg" href="#servicios">Explorar soluciones</a>
                             </div>
                             
                             <div className="row g-3 mt-4 hero-metrics">
