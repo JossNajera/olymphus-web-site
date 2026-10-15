@@ -99,14 +99,18 @@ const Footer = () => {
             </div>
             <div className="col-2 col-lg-3">
                 <h4>Contacto</h4>
-                <a href="mailto:olymphusti.soluciones@gmail.com">
+                {/* <a href="mailto:olymphusti.soluciones@gmail.com">
                     <i className="bi bi-envelope me-2"/>olymphusti.soluciones@gmail.com
-                </a>
+                </a> */}
                 <a href="#contacto">
                     <i className="bi bi-chat-square-text me-2"/>Solicitar cotización
                 </a>
-                <p>Pachuca de Soto, Hgo. · Atención remota</p>
+                <p>
+                 <i className="bi bi-geo-alt me-2"/>  Pachuca de Soto, Hgo. Calle Puerto Matamoros Ext. 23 Int. 2, San cayetano · Atención remota
+                </p>
             </div>
+
+            
 
             <div className="col-2 col-lg-2 ">
                 <h4>Síguenos</h4>
