@@ -34,12 +34,16 @@ const [menuOpen,setMenuOpen]=React.useState(false);
                             
                             ].map(([name,url])=><li className="nav-item" key={url}>
                         
-                            <a className="texto-brillo nav-link" href={url} onClick={closeMenu}>{name}</a></li>)
+                            <a className="texto-brillo nav-link" href={url} onClick={closeMenu}>
+                                {name}
+                            </a>
+                            </li>
+                            )
                         }
                         
                         <li className="texto-brillo-btn nav-item ms-lg-2">
-                            <a href="#contacto" onClick={closeMenu} className="btn btn-gold btn-sm px-3">
-                                Solicita tu cotización 
+                            <a href="#contacto" onClick={closeMenu} className="btn btn-outline-cyan btn-sm px-3">
+                                Contáctanos
                                 <i className="bi bi-arrow-right ms-1"/>
                             </a>
                         </li>

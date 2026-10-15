@@ -109,7 +109,7 @@ const Footer = () => {
             </div>
 
             <div className="col-2 col-lg-2 ">
-                <h4>Visitanos</h4>
+                <h4>Síguenos</h4>
                 <div className="d-flex justify-content-start align-items-center">
                         {/* Facebook */}
                     <a href="https://www.facebook.com/share/1F3wrsnYJR/?mibextid=wwXIfr" className="text-white text-decoration-none fs-4 transition-all mx-2" style={{ color: '#0a66c2' }}>

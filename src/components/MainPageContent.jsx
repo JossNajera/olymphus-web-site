@@ -4,29 +4,59 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Swal from 'sweetalert2'; 
 import axios from 'axios';
 
-// const services = [
-//   {icon:'bi-check2-square',title:'Pruebas funcionales',desc:'Validamos los procesos críticos y la experiencia de usuario.'},
-//   {icon:'bi-speedometer2',title:'Pruebas de rendimiento',desc:'Identificamos cuellos de botella y evaluamos la estabilidad.'},
-//   {icon:'bi-shield-lock',title:'Pruebas de seguridad',desc:'Detectamos riesgos y fortalecemos la protección de aplicaciones.'},
-//   {icon:'bi-cloud-check',title:'Pruebas en la nube',desc:'Ejecutamos pruebas escalables en entornos cloud.'},
-//   {icon:'bi-phone',title:'Pruebas multiplataforma',desc:'Verificamos el funcionamiento en distintos dispositivos.'},
-//   {icon:'bi-arrow-repeat',title:'Pruebas regresivas',desc:'Comprobamos que los cambios no afecten funcionalidades existentes.'},
-//   {icon:'bi-graph-up-arrow',title:'Reportes y análisis',desc:'Transformamos los resultados en decisiones accionables.'},
-// ];
 const services = [
-  {icon:'bi-arrow-repeat',title:'Olymphus QA Automation',desc:'Pruebas funcionales, regresivas, APIs, integración continua y reportes de calidad.'},
-  {icon:'bi-phone',title:'Olymphus Software Factory',desc:'Aplicaciones empresariales, dashboards, APIs, microservicios, integración de CRM y automatización de procesos.'},
-  {icon:'bi-cloud-check',title:'Olymphus Cloud Solutions',desc:'Diagnóstico de infraestructura, migraciones a Azure, modernización y optimización de recursos.'},
-  {icon:'bi-graph-up-arrow',title:'Dynamics 365',desc:'Automatizamos los procesos comerciales y la gestión de clientes con Microsoft Dynamics 365 sobre Power Platform.'},
-  {icon:'bi-check2-square',title:'Olymphus Ongoing Support',desc:'No te dejamos solo en el camino, te brindamos soporte continuo sobre las aplicaciones y procesos de tu negocio.'},
-  {icon:'bi-shield-lock',title:'Pruebas de seguridad',desc:'Detectamos riesgos y fortalecemos la protección de aplicaciones.'},
+  {icon:'bi-arrow-repeat',title:'Olymphus QA Automation',desc:'Pruebas funcionales, regresivas, APIs, integración continua y reportes de calidad.', ancla:'#olymphusQA'},
+  {icon:'bi-phone',title:'Olymphus Software Factory',desc:'Aplicaciones robustas, microservicios, integración de APIs y automatización de procesos.', ancla:'#olymphusSoftwareFactory'},
+  {icon:'bi-cloud-check',title:'Olymphus Cloud Solutions',desc:'Diagnóstico de infraestructura, migraciones a Azure, modernización y optimización de recursos.', ancla:'#olymphusCloudSolutions'},
+  {icon:'bi-gear',title:'Olymphus Ongoing Support',desc:'No te dejamos solo en el camino, te brindamos soporte continuo sobre las aplicaciones y procesos de tu negocio.', ancla:'#olymphusOngoingSupport'},
+  {icon:'bi-clipboard2-pulse-fill',title:'Olymphus Diagnostic',desc:'Diagnóstico de arquitecturas y análisis de riesgos. Proponemos soluciones para la mejora, fortalecimiento y eficacia de las aplicaciones.', ancla:'#olymphusDiagnostic'},
+  {icon:'bi-graph-up-arrow',title:'Dynamics 365',desc:'Automatización de procesos comerciales, conexión e integración de servicios a Dynamics 365 con Power Platform.', ancla:'#dynamics365'},
 //   {icon:'bi-speedometer2',title:'Pruebas multiplataforma',desc:'Verificamos el funcionamiento en distintos dispositivos.'},
 ];
 const sectors=[
   {icon:'bi-bank',title:'Financiero',desc:'Transacciones seguras, plataformas estables y confianza al cliente.'},
   {icon:'bi-cart3',title:'Comercial',desc:'E-commerce sin fallos, mejor experiencia y más ventas.'},
-  {icon:'bi-hospital-fill',title:'Salud',desc:'Optimización de flujos administrativos, automatización de datos clínicos y eficacia para el correcto funcionamiento de las plataformas médicas.'}
+  {icon:'bi-hospital-fill',title:'Salud',desc:'Optimización de flujos administrativos Y automatización de datos clínicos.'}
 ];
+
+// ===== DATOS: PRUEBAS AUTOMATIZADAS =====
+const automatedTestingFeatures = [
+  {icon:'bi-check2-circle',title:'Pruebas funcionales y regresivas',text:'Validamos flujos críticos y evitamos que los cambios rompan funcionalidades existentes.'},
+  {icon:'bi-terminal',title:'Automatización con JavaScript y Python',text:'Creamos suites reutilizables para interfaces, APIs y procesos de negocio.'},
+  {icon:'bi-arrow-repeat',title:'Integración CI/CD y reportes',text:'Ejecutamos pruebas en pipelines y entregamos evidencia clara para decidir con confianza.'}
+];
+
+// ===== DATOS: FÁBRICA DE SOFTWARE =====
+const factoryFeatures = [
+  { icon: 'bi-window-stack', title: 'Aplicaciones web', text: 'Interfaces responsivas con React y APIs integradas.' },
+  { icon: 'bi-diagram-3', title: 'Microservicios y APIs', text: 'Servicios desacoplados con Python y Node.js.' },
+  { icon: 'bi-database-check', title: 'Integración de datos', text: 'Soluciones conectadas con MySQL, MongoDB y sistemas existentes.' }
+];
+// ===== DATOS: SOLUCIONES EN LA NUBE =====
+const cloudFeatures = [
+  { icon: 'bi-cloud-arrow-up', title: 'Migración a Azure', text: 'Evaluación, planeación y traslado gradual de cargas de trabajo.' },
+  { icon: 'bi-boxes', title: 'Modernización', text: 'Contenedores, servicios administrados y arquitecturas escalables.' },
+  { icon: 'bi-shield-lock', title: 'Seguridad y monitoreo', text: 'Controles de acceso, observabilidad y continuidad operativa.' }
+];
+// ===== DATOS: SOPORTE CONTINUO =====
+const supportFeatures = [
+  { icon: 'bi-activity', title: 'Monitoreo', text: 'Seguimiento de salud, errores y desempeño de aplicaciones.' },
+  { icon: 'bi-tools', title: 'Mantenimiento', text: 'Correcciones, actualizaciones y mejora continua.' },
+  { icon: 'bi-headset', title: 'Atención técnica', text: 'Seguimiento de incidencias según los acuerdos de servicio.' }
+];
+// ===== DATOS: DIAGNÓSTICO DE ARQUITECTURAS =====
+const architectureFeatures = [
+  { icon: 'bi-diagram-2', title: 'Mapa de arquitectura', text: 'Revisión de componentes, integraciones y dependencias.' },
+  { icon: 'bi-speedometer2', title: 'Riesgos y rendimiento', text: 'Identificación de cuellos de botella y puntos críticos.' },
+  { icon: 'bi-clipboard2-check', title: 'Plan de mejora', text: 'Recomendaciones priorizadas por impacto y esfuerzo.' }
+];
+// ===== DATOS: DYNAMICS 365 =====
+const dynamicsFeatures = [
+  { icon: 'bi-people', title: 'Dynamics 365 CRM', text: 'Personalización de tablas, formularios, vistas y procesos.' },
+  { icon: 'bi-lightning-charge', title: 'Power Automate', text: 'Flujos para automatizar aprobaciones y tareas repetitivas.' },
+  { icon: 'bi-grid-1x2', title: 'Power Apps y Power Pages', text: 'Aplicaciones y portales conectados con Dataverse.' }
+];
+
 
 const STEPS = [
   { icon: 'bi-code-slash', name: 'DESARROLLO', time: '00:01', text: 'Componentes React y servicios Node.js compilados.', detail: 'Build exitoso · 24 módulos' },
@@ -38,6 +68,36 @@ const STEPS = [
 ];
 const STEP_MS = 1600;
 const CYCLE_MS = (STEPS.length + 2) * STEP_MS;
+
+// Componente reutilizable: el CSS de estas secciones vive en styles.css
+function NewServiceSection({id,eyebrow,title,accent,description,features,icon,reverse=false,variant=''}){
+ 
+ return <section id={id} className={`section-space extra-section ${variant}`} aria-labelledby={`${id}-titulo`}>
+  <div className="container"><div className={`row align-items-center g-4 g-lg-5 ${reverse?'flex-lg-row-reverse':''}`}>
+   <div className="col-lg-6"><p className="eyebrow">{eyebrow}</p><h2 id={`${id}-titulo`} className="extra-title">{title} <span>{accent}</span></h2><p className="extra-intro">{description}</p>
+    <div className="extra-feature-list">{features.map(f=><article className="extra-feature" key={f.title}><div className="extra-feature-icon"><i className={`bi ${f.icon}`} aria-hidden="true"/></div><div><h3>{f.title}</h3><p>{f.text}</p></div></article>)}</div>
+    <a className="btn btn-outline-cyan mt-4" href="#contacto">Solicitar asesoría <i className="bi bi-arrow-right ms-2" aria-hidden="true"/></a>
+   </div>
+
+    <div className="col-lg-6">
+        <div className="extra-visual" aria-hidden="true">
+            <div className="extra-visual-grid"/>
+                <div className="extra-visual-ring">
+                    <i className={`bi ${icon}`}/>
+                </div>
+                <div className="extra-visual-tag">
+                    <i className="bi bi-check-circle-fill"/> Solución que resuelve
+                </div>
+                <div className="extra-visual-code">
+                    &lt;build /&gt; <span>•</span> QA <span>•</span> Cloud <span>•</span> DEV
+                </div>
+            </div>
+        </div>
+
+  </div>
+  </div>
+ </section>;
+}
 
 const MainPageContent = () => {
 
@@ -53,7 +113,6 @@ const MainPageContent = () => {
       const progress = Math.min(100, Math.round((elapsed / (STEPS.length * STEP_MS)) * 100));
 
   
-  
   const [nombreCompleto, setNombreCompleto] = useState('');
   const [correo, setCorreo] = useState('');
   const [empresa, setEmpresa] = useState('');
@@ -66,7 +125,6 @@ const MainPageContent = () => {
     const manejarCambioSelect = (e) => {
     const indiceSeleccionado = e.target.selectedIndex;
     const texto = e.target.options[indiceSeleccionado].text; // Obtiene el texto visible
-    console.log(texto)
     setServicio(texto);
   };
 
@@ -162,22 +220,6 @@ try {
                         </div>
                         
                             <div className="col-lg-6">
-                                {/* <div className="hero-visual">
-                                    <div className="visual-orbit">
-                                        <div className="visual-core">
-                                            <i className="bi bi-check2-circle"/>
-                                            <strong>PRUEBAS<br/>AUTOMATIZADAS</strong>
-                                            <small>DE SOFTWARE</small>
-                                        </div>
-                                    </div>
-                                        <div className="floating-chip chip-top">
-                                            <i className="bi bi-shield-check"/> Confiable y seguro
-                                        </div>
-                                        <div className="floating-chip chip-bottom">
-                                            <i className="bi bi-check-circle-fill"/> Pruebas completadas
-                                        </div>
-
-                                </div> */}
                                     <div className="console" aria-label="Simulación animada de un pipeline de desarrollo y pruebas automatizadas">
                                         <div className="console-top d-flex align-items-center justify-content-between flex-wrap gap-2">
                                             <div className="d-flex align-items-center gap-2"><span className="live-dot"/><span className="mono">PIPELINE / LIVE</span></div>
@@ -238,11 +280,25 @@ try {
                         {services.map(s => (
                             <div className="col-md-6 col-lg-4" key={s.title}>
                                 <article className="service-card h-100">
+                                    
                                     <div className="service-icon">
                                         <i className={`bi ${s.icon}`}/>
                                     </div>
+
                                     <h3>{s.title}</h3>
                                     <p>{s.desc}</p>
+
+                                    <div className="row mt-3"> 
+                                        <ul className="list-unstyled  align-items-center justify-content-center d-flex"> 
+                                            <li className='nav-item' key={s.ancla}>
+                                                <a href={s.ancla} className="btn btn-outline-cyan  btn-lg " >
+                                                    {s.title}
+                                                    <i className="bi bi-arrow-right ms-1"/>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                     </div>
+                                    
                                 </article>
                             </div>
                         ))}
@@ -254,28 +310,32 @@ try {
                 <div className="container">
                     <div className="row align-items-center g-5">
                         <div className="col-lg-6">
-                            <p className="eyebrow">PROTEGE TU OPERACIÓN</p>
-                            <h2>Calidad que impulsa tu negocio y
+                            <h3 className="texto-brillo eyebrow">¿Por qué elegir Olymphus TI?</h3>
+                            <h2>Calidad que impulsa tu negocio y    
                                 <span> tu Operación</span>
                             </h2>
-                            <p>Detectamos defectos antes de que lleguen a tus usuarios. Integramos pruebas automatizadas en tus procesos de desarrollo para liberar software con mayor confianza.</p>
+                            <p>Detectamos defectos antes de que lleguen a tus usuarios. Automatizamos los procesos de tu negocio para que tus operaciones no se queden átras. Cuenta con la seguridad de utilzar un software con mayor calidad y confianza.</p>
                             <a href="#contacto" className="btn btn-outline-cyan mt-3">Hablemos de tu proyecto <i className="bi bi-arrow-right ms-2"/></a>
                         </div>
                     
                         <div className="col-lg-6">
                             <div className="dashboard">
                                 <div className="dashboard-head">
-                                    <span><i className="bi bi-activity"/> Panel de calidad</span>
-                                    <span className="status"><i className="bi bi-circle-fill"/> Ejemplo ilustrativo</span>
+                                    <span><i className="bi bi-activity"/> Panel de calidad y desarrollo</span>
+                                    <span className="status"><i className="bi bi-circle-fill"/> Soluciones a tu alcanse</span>
                                 </div>
                             <div className="dashboard-row">
                                 <i className="bi bi-check-circle-fill"/><span>Pruebas funcionales</span>
                                 <b>OK</b>
                             </div>
-                            <div className="dashboard-row"><i className="bi bi-check-circle-fill"/><span>Pruebas regresivas</span>
+                            <div className="dashboard-row">
+                                <i className="bi bi-check-circle-fill"/><span>Desarrollo web</span>
                                 <b>OK</b>
                             </div>
-                            <div className="dashboard-row"><i className="bi bi-check-circle-fill"/><span>Pruebas de seguridad</span>
+                            <div className="dashboard-row"><i className="bi bi-check-circle-fill"/><span>Procesos automatizados</span>
+                                <b>OK</b>
+                            </div>
+                            <div className="dashboard-row"><i className="bi bi-check-circle-fill"/><span>Soluciones en la nube</span>
                                 <b>OK</b>
                             </div>
                             <div className="bars" aria-label="Gráfico decorativo de cobertura">
@@ -283,19 +343,52 @@ try {
                                     [38,52,45,67,60,76,70,90,82,100,92,86].map((h,i)=><span key={i} style={{height:`${h}%`}}/>)
                                 }
                             </div>
-                                <small>Visualización demostrativa, no representa resultados de clientes.</small>
+                                <small>Convierte tu negocio en una fuerza competitiva, y demuestra resultados operativos.</small>
                         </div>
+                        
                     </div>
+
                 </div>
                 </div>
             
             </section>
+
+              {/* ===== SECCIÓN ADICIONAL: PRUEBAS AUTOMATIZADAS ===== */}
+            <section id="olymphusQA">
+                <NewServiceSection id="pruebas-automatizadas" eyebrow="ASEGURAMIENTO DE CALIDAD QA" title="OLYMPHUS" accent="QA AUTOMATION" description="Diseñamos y ejecutamos pruebas automatizadas para detectar defectos antes de producción, reducir tiempos de validación y proteger los procesos críticos de tu negocio." features={automatedTestingFeatures} icon="bi-check2-circle" reverse variant="extra-qa"/>
+            </section>
+
+            {/* ===== SECCIÓN NUEVA 1: FÁBRICA DE SOFTWARE ===== */}
+            <section id="olymphusSoftwareFactory">
+                <NewServiceSection id="fabrica-software" eyebrow="INGENIERÍA A LA MEDIDA" title="OLYMPHUS" accent="SOFTWARE FACTORY" description="Diseñamos, desarrollamos y evolucionamos soluciones digitales, desde una idea hasta su puesta en producción, con calidad integrada desde el inicio." features={factoryFeatures} icon="bi-code-slash" variant="extra-factory" />
+            </section>
+
+            {/* ===== SECCIÓN NUEVA 2: SOLUCIONES EN LA NUBE ===== */}
+            <section id="olymphusCloudSolutions">
+                <NewServiceSection id="soluciones-nube" eyebrow="INFRAESTRUCTURA MODERNA" title="OLYMPHUS" accent="CLOUD SOLUTIONS" description="Ayudamos a migrar, desplegar y optimizar aplicaciones en Microsoft Azure con un enfoque en seguridad, escalabilidad y costos." features={cloudFeatures} icon="bi-cloud-check" reverse variant="extra-cloud" />
+            </section>
+
+            {/* ===== SECCIÓN NUEVA 3: SOPORTE CONTINUO ===== */}
+            <section id="olymphusOngoingSupport">
+                <NewServiceSection id="soporte-continuo" eyebrow="EVOLUCIÓN Y ESTABILIDAD" title="OLYMPHUS" accent="ONGOING SUPPORT" description="Acompañamos la operación de tus sistemas después de la implementación, además restructuramos mejoras acordadas según las necesidades de tu aplicación." features={supportFeatures} icon="bi-headset" variant="extra-support" />
+            </section>
+
+            {/* ===== SECCIÓN NUEVA 4: DIAGNÓSTICO DE ARQUITECTURAS ===== */}
+            <section id="olymphusDiagnostic">
+                <NewServiceSection id="diagnostico-arquitecturas" eyebrow="VISIBILIDAD TÉCNICA" title="OLYMPHUS" accent="DIAGNOSTIC" description="Analizamos el estado actual de tus aplicaciones e integraciones para identificar riesgos técnicos y proponer una ruta de modernización viable." features={architectureFeatures} icon="bi-diagram-3" reverse variant="extra-architecture" />
+            </section>
+            
+            {/* ===== SECCIÓN NUEVA 5: DYNAMICS 365 ===== */}
+            <section id="dynamics365">
+                <NewServiceSection id="dynamics-365" eyebrow="ECOSISTEMA MICROSOFT" title="DYNAMICS" accent="365" description="Extendemos y automatizamos procesos comerciales con Dynamics 365, Dataverse y Power Platform, integrando las herramientas con tus operaciones." features={dynamicsFeatures} icon="bi-grid-3x3-gap" variant="extra-dynamics" />
+            </section>
+            
             
             <section id="sectores" className="section-space">
                 <div className="container">
                     <div className="section-heading text-center">
                         <p className="eyebrow">COVERTURA POR SECTOR</p>
-                        <h2> Nuestros Servicios se Especializan <span>para</span></h2>
+                        <h2> SOLUCIONES ESPECIALIZADAS <span>PARA</span></h2>
                     </div>
                     <div className="row g-4 mt-3">
                         {
@@ -342,6 +435,33 @@ try {
                         </span>
                         </div>
                     </div>
+
+                      {/* MÓDULO DE TARJETAS NUMÉRICAS (MÉTRICAS) */}
+                    <div className="row g-3 mb-4">
+                    {/* Métrica 1: Años */}
+                    <div className="col-md-4">
+                        <div className="eyebrown p-4 rounded-3 h-100" style={{ backgroundColor: 'rgba(6, 18, 46, 0.3)', border: '1px solid rgba(0, 85, 255, 0.15)' }}>
+                        <h3 className="h4 fw-bold text-white mb-1">+5 años impulsando el crecimiento de negocios</h3>
+                        <p className="text-muted small mb-0" style={{ color: '#718096' }}>Experiencia comprobada</p>
+                        </div>
+                    </div>
+                    
+                    {/* Métrica 2: Proyectos */}
+                    <div className="col-md-4">
+                        <div className="p-4 rounded-3 h-100" style={{ backgroundColor: 'rgba(6, 18, 46, 0.3)', border: '1px solid rgba(0, 85, 255, 0.15)' }}>
+                        <h3 className="h4 fw-bold text-white mb-1">+250 proyectos exitosos</h3>
+                        <p className="text-muted small mb-0" style={{ color: '#718096' }}>Implementaciones tecnológicas</p>
+                        </div>
+                    </div>
+
+                    {/* Métrica 3: Clientes */}
+                    <div className="col-md-4">
+                        <div className="p-4 rounded-3 h-100" style={{ backgroundColor: 'rgba(6, 18, 46, 0.3)', border: '1px solid rgba(0, 85, 255, 0.15)' }}>
+                        <h3 className="h4 fw-bold text-white mb-1">+150 clientes satisfechos</h3>
+                        <p className="text-muted small mb-0" style={{ color: '#718096' }}>Organizaciones atendidas</p>
+                        </div>
+                    </div>
+                    </div>
                 </div>
             </section>
             
@@ -350,8 +470,8 @@ try {
                     <div className="row g-5 align-items-center">
                         <div className="col-lg-5">
                             <p className="eyebrow">COMENCEMOS</p>
-                            <h2>Protege tu Software. 
-                                <span> Evoluciona tu Negocio.</span>
+                            <h2>Calidad de Software. 
+                                <span> Evolución de Negocio.</span>
                                 </h2>
                                     <p>Cuéntanos sobre tu aplicación y los retos que deseas resolver. Te ayudamos a identificar un enfoque de pruebas adecuado.</p>
                                     

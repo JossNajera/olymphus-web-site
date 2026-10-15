@@ -1104,3 +1104,257 @@ h1 {
   }
 }
 
+
+/* ============================================================
+   ESTILOS INDEPENDIENTES — CINCO NUEVAS SECCIONES TESTAUTOMATE
+   Se importa DESPUÉS de styles.css desde src/main.jsx.
+   Colores heredados: --navy, --navy-2, --cyan, --gold, --muted.
+   ============================================================ */
+
+/* ===== 1. FÁBRICA DE SOFTWARE ===== */
+.extra-factory {
+  background: linear-gradient(145deg, #031525, #092b44);
+}
+
+/* ===== 2. SOLUCIONES EN LA NUBE ===== */
+.extra-cloud {
+  background: linear-gradient(145deg, #061e32, #031525);
+}
+
+/* ===== 3. SOPORTE CONTINUO ===== */
+.extra-support {
+  background: linear-gradient(145deg, #031525, #092b44);
+}
+
+/* ===== 4. DIAGNÓSTICO DE ARQUITECTURAS ===== */
+.extra-architecture {
+  background: linear-gradient(145deg, #061e32, #031525);
+}
+
+/* ===== 5. DYNAMICS 365 ===== */
+.extra-dynamics {
+  background: linear-gradient(145deg, #031525, #092b44);
+}
+
+/* ===== ESTILOS COMPARTIDOS ÚNICAMENTE POR LAS NUEVAS SECCIONES ===== */
+.extra-section {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 217, 255, .14);
+}
+
+.extra-section .extra-title {
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.12;
+  margin-bottom: 1.2rem;
+  overflow-wrap: anywhere;
+}
+
+.extra-section .extra-title span {
+  color: var(--gold);
+}
+
+.extra-intro {
+  max-width: 580px;
+  font-size: 1.04rem;
+}
+
+.extra-feature-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.extra-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 15px;
+  background: rgba(8, 42, 69, .66);
+  border: 1px solid rgba(0, 217, 255, .17);
+  border-radius: 14px;
+}
+
+.extra-feature-icon {
+  flex: 0 0 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: var(--gold);
+  background: rgba(0, 217, 255, .09);
+  border: 1px solid rgba(0, 217, 255, .3);
+  font-size: 1.35rem;
+}
+
+.extra-feature h3 {
+  font-size: 1.03rem;
+  margin: 0 0 5px;
+  color: var(--white);
+}
+
+.extra-feature p {
+  margin: 0;
+  font-size: .91rem;
+  line-height: 1.55;
+}
+
+.extra-visual {
+  min-height: 390px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  border: 1px solid rgba(0, 217, 255, .27);
+  border-radius: 22px;
+  overflow: hidden;
+  background: radial-gradient(circle, rgba(0, 127, 175, .26), transparent 64%), #061e32;
+}
+
+.extra-visual-grid {
+  position: absolute;
+  inset: 0;
+  opacity: .35;
+  background-image: linear-gradient(rgba(0, 217, 255, .13) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 217, 255, .13) 1px, transparent 1px);
+  background-size: 35px 35px;
+}
+
+.extra-visual-ring {
+  width: min(58%, 260px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid var(--cyan);
+  box-shadow: 0 0 28px rgba(0, 217, 255, .34), inset 0 0 36px rgba(0, 217, 255, .14);
+  background: rgba(3, 21, 37, .82);
+}
+
+.extra-visual-ring i {
+  font-size: clamp(4rem, 9vw, 7rem);
+  color: var(--cyan);
+  filter: drop-shadow(0 0 12px rgba(0, 217, 255, .55));
+}
+
+.extra-visual-tag,
+.extra-visual-code {
+  position: absolute;
+  z-index: 1;
+  padding: 10px 14px;
+  background: #082a45;
+  border: 1px solid rgba(0, 217, 255, .5);
+  border-radius: 10px;
+  font-size: .82rem;
+  box-shadow: 0 8px 20px #0005;
+}
+
+.extra-visual-tag {
+  top: 8%;
+  right: 5%;
+}
+
+.extra-visual-tag i {
+  color: #39e8a5;
+  margin-right: 5px;
+}
+
+.extra-visual-code {
+  bottom: 8%;
+  left: 5%;
+  color: var(--cyan);
+  font-family: ui-monospace,SFMono-Regular,Consolas,monospace;
+}
+
+.extra-visual-code span {
+  color: var(--gold);
+}
+
+@media (max-width: 767.98px) {
+  .extra-visual {
+    min-height: 300px;
+  }
+
+  .extra-visual-tag,
+  .extra-visual-code {
+    font-size: .7rem;
+    padding: 8px;
+  }
+
+  .extra-feature {
+    padding: 12px;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .extra-visual {
+    min-height: 260px;
+  }
+
+  .extra-visual-ring {
+    width: 55%;
+  }
+
+  .extra-visual-tag {
+    top: 5%;
+    right: 3%;
+  }
+
+  .extra-visual-code {
+    bottom: 5%;
+    left: 3%;
+  }
+}
+
+/* ============================================================
+   ANIMACIÓN: HAZ DE LUZ GIRATORIO EN LOS 5 ICONOS PRINCIPALES
+   Se aplica automáticamente a .extra-visual-ring sin cambiar JSX.
+   Una vuelta suave cada 5 segundos, en bucle infinito.
+   ============================================================ */
+.extra-visual-ring {
+  position: relative;
+  isolation: isolate;
+  z-index: 0;
+  /* Deja espacio para que el haz resalte alrededor del borde. */
+  border-color: rgba(0, 217, 255, .34);
+}
+
+.extra-visual-ring::before {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: -1;
+  background: conic-gradient(from 0deg, transparent 0deg, transparent 248deg, rgba(0, 217, 255, .12) 282deg, rgba(0, 217, 255, .65) 321deg, #ffffff 344deg, var(--cyan, #00d9ff) 352deg, transparent 360deg);
+  /* Solo se ilumina el aro exterior, no el centro del icono. */
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 9px), #000 calc(100% - 8px));
+  filter: drop-shadow(0 0 9px rgba(0, 217, 255, .85));
+  animation: extra-orbit-light 5s linear infinite;
+  will-change: transform;
+}
+
+.extra-visual-ring > i {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes extra-orbit-light {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Respeta la preferencia de accesibilidad de reducir movimiento. */
+@media (prefers-reduced-motion: reduce) {
+  .extra-visual-ring::before {
+    animation: none;
+  }
+}
+
+
