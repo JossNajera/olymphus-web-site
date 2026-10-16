@@ -30,7 +30,7 @@ const [menuOpen,setMenuOpen]=React.useState(false);
                     <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-2">
                         {
                             [
-                                ['Inicio','#inicio'],['Servicios','#servicios'],['Sectores','#sectores'],['Contacto','#contacto'], ['Nosotros','#nosotros']
+                                ['Inicio','#inicio'],['Soluciones','#servicios'],['Sectores','#sectores'],['Contacto','#contacto'], ['Nosotros','#nosotros']
                             
                             ].map(([name,url])=><li className="nav-item" key={url}>
                         
