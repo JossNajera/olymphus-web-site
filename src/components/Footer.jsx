@@ -116,11 +116,11 @@ const Footer = () => {
                 <h4>Síguenos</h4>
                 <div className="d-flex justify-content-start align-items-center">
                         {/* Facebook */}
-                    <a href="https://www.facebook.com/share/1F3wrsnYJR/?mibextid=wwXIfr" className="text-white text-decoration-none fs-4 transition-all mx-2" style={{ color: '#0a66c2' }}>
+                    <a href="https://www.facebook.com/people/Olymphus-TI/61595001236776" className="text-white text-decoration-none fs-4 transition-all mx-2" style={{ color: '#0a66c2' }}>
                     <i className="bi bi-facebook"></i>
                     </a>
                     {/* LinkedIn */}
-                    <a href="#" className="text-white text-decoration-none fs-4 transition-all mx-2" style={{ color: '#0a66c2' }}>
+                    <a href="https://www.linkedin.com/company/olymphus-ti" className="text-white text-decoration-none fs-4 transition-all mx-2" style={{ color: '#0a66c2' }}>
                     <i className="bi bi-linkedin"></i>
                     </a>
                 </div>
