@@ -15,6 +15,7 @@ const [menuOpen,setMenuOpen]=React.useState(false);
 
                 <a className="navbar-brand brand d-flex align-items-center gap-2" href="#inicio">
                     <img src={olymphusLogo} alt="Logo" width="300" height="90" className="d-inline-block align-text-top me-2" />
+                
                 </a>
                 
                 <button 
