@@ -22,7 +22,7 @@ const sectors=[
 // ===== DATOS: PRUEBAS AUTOMATIZADAS =====
 const automatedTestingFeatures = [
   {icon:'bi-check2-circle',title:'Pruebas funcionales y regresivas',text:'Validamos flujos críticos y evitamos que los cambios rompan funcionalidades existentes.'},
-  {icon:'bi-terminal',title:'Automatización con JavaScript y Python',text:'Creamos suites reutilizables para interfaces, APIs y procesos de negocio.'},
+  {icon:'bi-terminal',title:'Automatización con Java, JavaScript y Python',text:'Creamos suites reutilizables para interfaces, APIs y procesos de negocio.'},
   {icon:'bi-arrow-repeat',title:'Integración CI/CD y reportes',text:'Ejecutamos pruebas en pipelines y entregamos evidencia clara para decidir con confianza.'}
 ];
 
@@ -47,8 +47,8 @@ const supportFeatures = [
 // ===== DATOS: DIAGNÓSTICO DE ARQUITECTURAS =====
 const architectureFeatures = [
   { icon: 'bi-diagram-2', title: 'Mapa de arquitectura', text: 'Revisión de componentes, integraciones y dependencias.' },
-  { icon: 'bi-speedometer2', title: 'Riesgos y rendimiento', text: 'Identificación de cuellos de botella y puntos críticos.' },
-  { icon: 'bi-clipboard2-check', title: 'Plan de mejora', text: 'Recomendaciones priorizadas por impacto y esfuerzo.' }
+  { icon: 'bi-speedometer2', title: 'Riesgos y rendimiento', text: 'Identificación de fallos de código y puntos críticos.' },
+  { icon: 'bi-clipboard2-check', title: 'Plan de mejora', text: 'Recomendaciones priorizadas por impacto y módulo.' }
 ];
 // ===== DATOS: DYNAMICS 365 =====
 const dynamicsFeatures = [
@@ -375,7 +375,7 @@ try {
 
             {/* ===== SECCIÓN NUEVA 4: DIAGNÓSTICO DE ARQUITECTURAS ===== */}
             <section id="olymphusDiagnostic">
-                <NewServiceSection id="diagnostico-arquitecturas" eyebrow="VISIBILIDAD TÉCNICA" title="OLYMPHUS" accent="SecDevOps" description="Analizamos el estado actual de tus aplicaciones e integraciones para identificar riesgos técnicos y proponer una ruta de modernización viable." features={architectureFeatures} icon="bi-diagram-3" reverse variant="extra-architecture" />
+                <NewServiceSection id="diagnostico-arquitecturas" eyebrow="VISIBILIDAD TÉCNICA" title="OLYMPHUS" accent="SecDevOps" description="Analizamos el estado actual de tus aplicaciones para identificar riesgos operativos en ambientes controlados y asi poder proponer una ruta de mejora viable para tu aplicativos." features={architectureFeatures} icon="bi-diagram-3" reverse variant="extra-architecture" />
             </section>
             
             {/* ===== SECCIÓN NUEVA 5: DYNAMICS 365 ===== */}
