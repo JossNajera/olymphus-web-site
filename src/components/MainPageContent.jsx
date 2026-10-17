@@ -9,7 +9,7 @@ const services = [
   {icon:'bi-phone',title:'Olymphus Software Factory',desc:'Aplicaciones robustas, microservicios, integración de APIs y automatización de procesos.', ancla:'#olymphusSoftwareFactory'},
   {icon:'bi-cloud-check',title:'Olymphus Cloud Solutions',desc:'Diagnóstico de infraestructura, migraciones a Azure, modernización y optimización de recursos.', ancla:'#olymphusCloudSolutions'},
   {icon:'bi-gear',title:'Olymphus Ongoing Support',desc:'No te dejamos solo en el camino, te brindamos soporte continuo sobre las aplicaciones y procesos de tu negocio.', ancla:'#olymphusOngoingSupport'},
-  {icon:'bi-shield-check',title:'Olymphus Diagnostic (SecDevOps)',desc:'Diagnóstico de arquitecturas y análisis de riesgos. Proponemos soluciones para la mejora, fortalecimiento y eficacia de las aplicaciones.', ancla:'#olymphusDiagnostic'},
+  {icon:'bi-shield-check',title:'Olymphus SecDevOps',desc:'Diagnóstico de arquitecturas y análisis de riesgos. Proponemos soluciones para la mejora, fortalecimiento y eficacia de las aplicaciones.', ancla:'#olymphusDiagnostic'},
   {icon:'bi-graph-up-arrow',title:'Dynamics 365',desc:'Automatización de procesos comerciales, conexión e integración de servicios a Dynamics 365 con Power Platform.', ancla:'#dynamics365'},
 //   {icon:'bi-speedometer2',title:'Pruebas multiplataforma',desc:'Verificamos el funcionamiento en distintos dispositivos.'},
 ];
