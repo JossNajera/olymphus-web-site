@@ -192,7 +192,7 @@ try {
                         <div className="col-lg-6">
                             <p className="eyebrow"><span className="line"/> CALIDAD DE SOFTWARE PARA TU NEGOCIO</p>
                             <h1>Software que funciona, <span>Negocios que crecen.</span></h1>
-                            <p className="lead mt-4"> Fabricamos tu software a la medida y Automatizamos tus pruebas para detectar errores antes de llegar a producción. Reducimos riesgos e impulsamos la estabilidad de tus aplicaciones.</p>
+                            <p className="lead mt-4"> Fabricamos tu software a la medida y Automatizamos tus pruebas para detectar errores antes de llegar a producción. Análizamos y reducimos riesgos, para proteger la seguridad de tus aplicaciones.</p>
                             
                             <div className="d-flex flex-wrap gap-3 mt-4">
                                 <a className="btn btn-gold btn-lg" href="#contacto">
