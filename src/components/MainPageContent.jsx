@@ -375,7 +375,7 @@ try {
 
             {/* ===== SECCIÓN NUEVA 4: DIAGNÓSTICO DE ARQUITECTURAS ===== */}
             <section id="olymphusDiagnostic">
-                <NewServiceSection id="diagnostico-arquitecturas" eyebrow="VISIBILIDAD TÉCNICA" title="OLYMPHUS" accent="DIAGNOSTIC" description="Analizamos el estado actual de tus aplicaciones e integraciones para identificar riesgos técnicos y proponer una ruta de modernización viable." features={architectureFeatures} icon="bi-diagram-3" reverse variant="extra-architecture" />
+                <NewServiceSection id="diagnostico-arquitecturas" eyebrow="VISIBILIDAD TÉCNICA" title="OLYMPHUS" accent="SecDevOps" description="Analizamos el estado actual de tus aplicaciones e integraciones para identificar riesgos técnicos y proponer una ruta de modernización viable." features={architectureFeatures} icon="bi-diagram-3" reverse variant="extra-architecture" />
             </section>
             
             {/* ===== SECCIÓN NUEVA 5: DYNAMICS 365 ===== */}
